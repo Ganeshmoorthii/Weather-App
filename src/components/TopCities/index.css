@@ -1,19 +1,31 @@
-.top-cities-container{
+.top-cities-container {
   background-color: #714849;
-  height: 225px; /* Try this first to see it working */
+  height: auto;
   width: 100%;
   opacity: 0.9;
-  /* box-shadow: 0 0 30px 10px #694944; */
+  display: flex;
+  flex-direction: column; /* 👈 Stack cities and search bar vertically */
+  padding-bottom: 10px;
 }
 
-.top-cities { 
-  /* opacity: 0.5; */
-  margin: 0px;
+.top-cities {
   display: flex;
+  flex-wrap: nowrap;        /* prevent wrapping */
+  overflow-x: auto;         /* enable horizontal scroll */
+  -webkit-overflow-scrolling: touch; /* smooth scrolling for iOS */
+  scrollbar-width: none;    /* hide scrollbar (Firefox) */
+  padding: 8px;
+}
+
+/* Optional: hide scrollbar in WebKit browsers */
+.top-cities::-webkit-scrollbar {
+  display: none;
 }
 
 .city {
   width: 20%;
+  min-width: 180px; /* ensures cities don’t become too small */
+  flex-shrink: 0;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -26,7 +38,24 @@
   padding: 10px;
   overflow: visible;
   z-index: 1;
-  transition: transform 0.4s ease; /* 👈 smooth zoom */
+  transition: transform 0.4s ease;
+}
+
+/* On small screens: make city width fixed for better scrolling */
+@media (max-width: 768px) {
+  .city {
+    min-width: 150px;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .city-text h1 {
+    font-size: 1rem;
+  }
+
+  .city-text p {
+    font-size: 0.8rem;
+  }
 }
 
 .city:hover {
@@ -34,12 +63,11 @@
   box-shadow: none !important; /* 🚫 prevent any shadow */
 }
 
-
 .city-text {
   /* ... existing styles ... */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Horizontal, Vertical, Blur, Color */
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0px;
 }
 
@@ -52,4 +80,15 @@
 .city-text p {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   margin: 2px;
+}
+
+.city-image {
+  display: block;
+}
+
+/* 📱 Hide image on screens below 768px */
+@media (max-width: 768px) {
+  .city-image {
+    display: none;
+  }
 }

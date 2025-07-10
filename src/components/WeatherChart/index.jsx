@@ -55,7 +55,7 @@ const WeatherChart = ({ forecastData, selectedCity }) => {
   };
 
   return (
-    <div style={{ width: "100%", height: "470px" }}>
+    <div style={{ width: "100%", height: "470px" }} className="chart-wrapper"   >
       <Line
         data={chartData}
         options={{

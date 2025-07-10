@@ -22,7 +22,7 @@ function TopCities({ setSelectedCity }) {
           { name: "Bangalore", img: "https://cdn.enjoytravel.com/img/Big7Enjoy/en/travel-news/interesting-facts/interesting-facts-bangalore/bangalore_is_the_silicon_valley_of_india_medium_768.webp", temp: "32°C" },
         ].map((city) => (
           <div key={city.name} className="city" onClick={() => handleSearch(city.name)}>
-            <HexImage src={city.img} alt={city.name} />
+            <HexImage src={city.img} alt={city.name} className="city-image" />
             <div className="city-text">
               <h1>{city.name}</h1>
               <p>Clouds</p>

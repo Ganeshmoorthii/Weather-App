@@ -1,4 +1,6 @@
 .chart-wrapper {
   overflow-x: auto;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }

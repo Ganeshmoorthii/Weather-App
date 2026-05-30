@@ -42,7 +42,7 @@ function App() {
   }, [selectedCity]);
 
   return (
-    <>
+    <div className="app-root">
       <VantaClouds />
       <TopCities setSelectedCity={setSelectedCity} />
       <div className="bottom">
@@ -64,7 +64,7 @@ function App() {
           </>
         )}
       </div>
-    </>
+    </div>
   );
 }
 
